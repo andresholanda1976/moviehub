@@ -2,6 +2,4 @@ Projeto criado para a disciplina de POO
 
 Equipe
 
-matricula Nome
-matricula 2 Nome 2
-matrícula 3 Nome 3
+20024023505 André de Souza Holanda
