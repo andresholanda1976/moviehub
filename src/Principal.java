@@ -3,6 +3,7 @@ import java.util.Scanner;
 import br.com.cdl.moviehub.calculos.CalculadoraDeTempo;
 import br.com.cdl.moviehub.modelos.Filme;
 import br.com.cdl.moviehub.modelos.Serie;
+import br.com.cdl.moviehub.modelos.Documentario;
 
 public class Principal {
     public static void main(String[] args) {
@@ -19,8 +20,8 @@ public class Principal {
         filme1.setTotalEmMinutos(Integer.parseInt(scanner.nextLine().trim()));
         System.out.println("Digite a quantidade de avaliações:");
         int qtd = Integer.parseInt(scanner.nextLine().trim());
-        for (int i=0;i<qtd;i++){
-            System.out.println("Digite a nota da avaliação " + (i+1) + ":");
+        for (int i = 0; i < qtd; i++) {
+            System.out.println("Digite a nota da avaliação " + (i + 1) + ":");
             filme1.avalia(Double.parseDouble(scanner.nextLine().trim()));
         }
         // Informação das séries
@@ -35,19 +36,33 @@ public class Principal {
         serie1.setEpisodiosPorTemporada(Integer.parseInt(scanner.nextLine().trim()));
         System.out.println("Digite a duração de cada episódio em minutos:");
         serie1.setMinutosPorEpisodio(Integer.parseInt(scanner.nextLine().trim()));
-        scanner.close();
+
+        // Informação do documentário
+        Documentario doc1 = new Documentario();
+
+        System.out.println("Digite o nome do documentário:");
+        doc1.setNome(scanner.nextLine());
+
+        System.out.println("Digite o tema do documentário:");
+        doc1.setTema(scanner.nextLine());
+
+        System.out.println("Digite o ano de lançamento:");
+        doc1.setAnoDeLancamento(Integer.parseInt(scanner.nextLine().trim()));
+
+        System.out.println("Digite a duração em minutos:");
+        doc1.setDuracaoEmMinutos(Integer.parseInt(scanner.nextLine().trim()));
+
         filme1.exibeFichaTecnica();
         serie1.exibeFichaTecnica();
-        System.out.println("Soma das avaliações: " + filme1.getSomaDasAvaliacoes());
-        System.out.println("Total de avaliações: " + filme1.getTotalDeAvaliacoes());
-        System.out.println("Média das avaliações: " + filme1.pegaMedia());
+        doc1.exibeFichaTecnica();
 
         // Calculadora de tempo
         CalculadoraDeTempo calculadora = new CalculadoraDeTempo();
         calculadora.inclui(filme1);
         calculadora.inclui(serie1);
-        System.out.println("Tempo total: " + calculadora.getTempoTotal());
+        calculadora.inclui(doc1);
+        System.out.println("Tempo total: " + calculadora.getTempoTotal() + " minutos");
 
-
+        scanner.close();
     }
 }
