@@ -12,7 +12,11 @@ public class Titulo {
         System.out.println("Nome do filme: " + nome);
         System.out.println("Ano de lançamento: " + anoDeLancamento);
         System.out.println("Duração em minutos: " + totalEmMinutos);
+        System.out.println("Soma das avaliações: " + somaDasAvaliacoes);
+        System.out.println("Total de avaliações: " + totalDeAvaliacoes);
+        System.out.println("Média das avaliações: " + pegaMedia());
     }
+
 
     public void avalia(double nota){
 
